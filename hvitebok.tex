@@ -1,0 +1,144 @@
+\documentclass[11pt,norsk,a4paper]{book}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{varioref}
+\usepackage{amsmath,url}
+\usepackage{epsfig}
+\usepackage{moreverb}
+\usepackage{float}
+\usepackage{fancyheadings}
+
+\title{Hvitebok for Realistforeningen \\
+       \quad \\
+       \quad \\
+       \epsfig{file=rflogo.eps, totalheight=8cm} }
+
+\begin{document}
+
+\maketitle{}
+\tableofcontents{}
+
+
+\chapter{Forord}
+Denne hviteboken er en samling med tekster av forskjellig slag som har
+som felles mål å overføre erfaringer og tradisjoner i Realistforeningen
+videre til neste generasjon av aktive studenter. Den er på ingen måte
+ment å være en utfyllende og allvitende bok. Nytten av boken står og
+faller på at innholdet holdes aktuelt, og det er derfor viktig at den
+oppdateres kontinuerlig med de endringer og erfaringer som kommer til.
+
+Boken kan brukes på flere måter, både som en innføring for utenforstående
+i hva Realistforeningen holder på med, som opplæringsmateriale for nye
+personer i aktive verv, og til å klarere definere ansvarsområder.
+Rekkefølgen på de forskjellige delene er mer eller mindre tilfeldig,
+og de fleste vil nok bruke den mest som et oppslagsverk.
+
+Jeg håper dette arbeidet vi har lagt ned gir en god hjelp til alle
+som kommer etter oss, og at boka vil bli videreutviklet til å bli
+langt mer etter hvert.
+
+Martin Alnæs, Formann høsten 2003
+
+
+\chapter{Generelt}
+Her følger noen enkle betraktninger om det å drive en studentforeninger,
+som forhåpentligvis kan gjøre jobben lettere for nye personer.
+\input{kildekode/generelt}
+
+\chapter{Hovedstyret}
+Hovedstyret er Realistforeningens øverste organ mellom Generalforsamlingene.
+De planlegger langsiktige mål for foreningen, og har ansvar for at
+foreningen som helhet samarbeider godt. Hovedstyret avgjør foreningens
+hovedprogram og budsjett, jobber for rekruttering til foreningen, og
+arrangerer interne sosiale arrangementer.
+\input{kildekode/formand}
+\input{kildekode/sekretar}
+
+\chapter{Kjellerstyret}
+\input{kildekode/kjellermester}
+\input{kildekode/skjenkemester}
+\input{kildekode/kafe}
+
+\chapter{Økonomiutvalget}
+\input{kildekode/okonomiutvalget}
+
+\chapter{Arrstyret}
+\input{kildekode/arrsjef}
+\section{Tradisjonelle arrangementer}
+Her følger en rekke arrangementer som RF har mer eller mindre lange
+tradisjoner på å holde.
+
+Dette må noen skrive.
+%\input{kildekode/arr/harryaften}
+%\input{kildekode/arr/psildefrokost}
+%\input{kildekode/arr/lasvegas}
+%\input{kildekode/arr/høstpølsefest}
+%\input{kildekode/arr/cowboyaften}
+%\input{kildekode/arr/julebord}
+
+\section{Erfaringsprotokoller}
+Denne seksjonen kan med fordel fylles på med flere erfaringer og tips
+i forbindelse med arrangementer.
+\input{kildekode/arr/karneval}
+\input{kildekode/arr/allefestersmor}
+
+\chapter{Fagstyret}
+\input{kildekode/fagsjef}
+
+\chapter{Infostyret}
+\input{kildekode/infosjef}
+
+\chapter{Andre verv}
+Verv som ikke er direkte knyttet til bestemte styrer eller utvalg.
+\input{kildekode/internansvarlig}
+\input{kildekode/donaldsjef}
+
+\chapter{Oppdatering av denne boken}
+Det er ønskelig at denne boken hvert semester oppdateres i henhold til
+de erfaringer man har hatt. Boken er skrevet med \LaTeX, og det er ikke
+sikkert alle har kjennskap til dette systemet. Det kan virke komplisert,
+men for å holde dette dokumentet oppdatert trenger man svært lite
+kunnskaper.
+
+Finn deg en UNIX- eller Linuxmaskin, åpne en terminal og gå til katalogen
+for hviteboken.
+
+\subsection{Oppdatere eksisterende filer}
+Hoveddokumentet heter "hvitebok.tex". Under katalogen "kildekode" ligger
+resten av filene, stort sett en fil for hvert verv pluss noen til.
+Under katalogen "kildekode/arr" ligger arrangementsbeskrivelser og
+erfaringsprotokoller ifm arrangementer. Alle disse filene er tekstfiler
+som kan åpnes i et hvilket som helst tekstredigeringsprogram.
+(Filen "Makefile" inneholder regler som benyttes av kommandoen "make"
+for å produsere dokumenter av forskjellig format ut fra kildekoden).
+
+\subsection{Legge til filer}
+Legg filen i en av katlogene beskrevet over. Filen må være ren tekst,
+og kalles "filnavn.tex". Bruk samme koder for overskrifter og lister
+som du finner i de eksisterende filene. Legg til filnavnet i "Makefile",
+fremgangsmåten er beskrivet i den fila. Legg til filnavnet på riktig
+sted i "hvitebok.tex", på samme måte som alle de andre filene er skrevet.
+
+\subsection{Lage pdf- og ps-filer}
+Skriv "make" eller "make LaTeX=ltx" på IfI.
+Evt "make logclean" for å slette logger.
+Andre kommandoer du kan bruke er "make pdf" og "make ps".
+
+\chapter{Historie}
+Hadde vært fint med litt historie her.
+
+\chapter{Realistforeningens lover}
+RFs lover, oppdatert etter hvert semesters Generalforsamlings 
+endringer, skal ligge ved Hviteboken. Dersom noe av innholdet
+i Hviteboken ikke samsvarer med lovene, er det selvfølgelig
+lovene som gjelder. Dersom gjeldene praksis er i strid med
+lovene, må det enten fremmes lovendringsforslag, eller praksisen
+må endres.
+\input{kildekode/lover}
+
+\chapter{Takk til}
+Alle som har vært med å skrive denne boka, alle som kommer til å oppdatere den i fremtiden, og alle andre som har gjort, gjør eller kommer til å gjøre en innsats for RF.
+
+\end{document}

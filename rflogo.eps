@@ -1,0 +1,95 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%BoundingBox: 93 52 507 788
+
+/TNOF{/fontsize exch def 
+        /Symbol findfont fontsize scalefont setfont
+}def
+
+/mm{ % Fra mm til points
+	25.4 div 72 mul} def
+
+/4pop{4{pop}repeat} bind def
+
+/arcp{arc stroke} bind def
+
+/logo{  % x y
+	/y exch def
+	/x exch def
+      gsave
+	x y translate
+	.8 .8 scale
+	0.85 setlinewidth
+	
+	newpath
+        -1.25 0 3 0 360 arc	% sirkelen
+	stroke
+	-6.25 -13 moveto
+	16 TNOF
+	gsave
+	2 2 scale
+	(\362) show		% integralet
+	closepath
+	grestore
+
+	gsave
+	1.25 0.9 scale
+	newpath			% ytre del av benzenringen
+	-20 20 moveto
+	0 50 lineto
+	20 20 lineto
+	20 -20 lineto
+	0 -50 lineto
+	-20 -20 lineto
+	-20 20 lineto
+	closepath
+	stroke
+	newpath			% indre del av benzenringen
+	/dd 6 3 div def 
+	/hd -1.5 dd mul dup /xd exch def 50 add def 
+	-20 14 moveto
+	dd hd lineto 
+	-20 -14 moveto
+	dd hd neg lineto
+	16.8 24.8 moveto
+	16.8 -24.8 lineto
+	closepath
+	stroke
+	grestore
+      gsave	
+	gsave
+	1 1.5 scale
+	newpath
+	-1.25 0 16 0 360 arc	% elektronskallet
+	stroke
+        grestore
+	/gg 128 sqrt def
+	14.75 0  kule		% 1. elektron
+	10.06  gg g17 kule	% osv.
+	-1.25 16 g17 kule
+        12.5 neg gg g17 kule
+	-17.25 0 kule
+        -12.5 gg g17 neg kule
+	-1.25 16 g17 neg kule
+     	10.06 gg g17 neg kule
+      grestore
+      grestore
+} bind def
+	
+/g17{1.5 mul}def
+
+/kule{ % x y på stakken
+        newpath
+	2 0 360 arc
+	0 setgray
+	fill
+} bind def
+
+%%%%%%%%% END DEF RF-LOGO %%%%%%%
+
+
+% Tala før "scale" er forstørring.  10 10 passar til A4.
+  10 10 scale
+% Tala før logo er plassering på arket i x- og y-retning. 30 42 passar til A4.
+  30 42 logo
+% showpage teiknar sida på arket.
+  showpage
