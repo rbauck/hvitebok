@@ -62,9 +62,7 @@ changelog:
 
 # Denne texer den forrige filen
 changelog.tex: changelog
-	echo '\begin{verbatim}' > changelog.tex
-	cat changelog >> changelog.tex
-	echo '\end{verbatim}' >> changelog.tex
+	perl mkchlog.pl changelog > changelog.tex
 
 # Renser opp
 logclean:
