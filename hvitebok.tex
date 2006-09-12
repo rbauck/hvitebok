@@ -1,4 +1,4 @@
-\documentclass[11pt,norsk,a4paper]{book}
+\documentclass[11pt,norsk,a4paper]{scrbook}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -120,20 +120,20 @@ skaffe dette med kommandoen\\
 i xterm/terminal. Erstatt «<bruker>» med egnet UiO-brukernavn. Passord er da uio-passord.
 
 \subsection{Oppdatere eksisterende filer}
-Hoveddokumentet heter "hvitebok.tex". Under katalogen "kildekode" ligger
+Hoveddokumentet heter «hvitebok.tex». Under katalogen «kildekode» ligger
 resten av filene, stort sett en fil for hvert verv pluss noen til.
-Under katalogen "kildekode/arr" ligger arrangementsbeskrivelser og
+Under katalogen «kildekode/arr» ligger arrangementsbeskrivelser og
 erfaringsprotokoller ifm arrangementer. Alle disse filene er tekstfiler
 som kan åpnes i et hvilket som helst tekstredigeringsprogram.
-(Filen "Makefile" inneholder regler som benyttes av kommandoen "make"
+(Filen «Makefile» inneholder regler som benyttes av kommandoen «make»
 for å produsere dokumenter av forskjellig format ut fra kildekoden).
 
 \subsection{Legge til filer}
 Legg filen i en av katlogene beskrevet over. Filen må være ren tekst,
-og kalles "filnavn.tex". Bruk samme koder for overskrifter og lister
-som du finner i de eksisterende filene. Legg til filnavnet i "Makefile",
+og kalles «filnavn.tex». Bruk samme koder for overskrifter og lister
+som du finner i de eksisterende filene. Legg til filnavnet i «Makefile»,
 fremgangsmåten er beskrivet i den fila. Legg til filnavnet på riktig
-sted i "hvitebok.tex", på samme måte som alle de andre filene er skrevet.
+sted i «hvitebok.tex», på samme måte som alle de andre filene er skrevet.
 
 Nye filer må legges til i subversion med kommandoen \verb@svn add <filnavn>@.
 Først da vil Subversion bry seg om filen. Vær vennlig og ikke legg inn filer
@@ -147,9 +147,9 @@ hvor du kan legge inn en kommentar, som kan gjøre det enklere å finne ut hvilken
 som har hva og hva som er endret siden sist. Dette gir en god changelog\footnote{svn log}.
 
 \subsection{Lage pdf- og ps-filer}
-Skriv "make" eller "make LaTeX=ltx" på IfI.
-Evt "make logclean" for å slette logger.
-Andre kommandoer du kan bruke er "make pdf" og "make ps".
+Skriv «make» eller «make LaTeX=ltx» på IfI.
+Evt «make logclean» for å slette logger.
+Andre kommandoer du kan bruke er «make pdf» og «make ps».
 
 \chapter{Historie}
 Hadde vært fint med litt historie her.
