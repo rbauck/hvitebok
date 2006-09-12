@@ -22,7 +22,8 @@ filer := ${hovedfil} kildekode/formand.tex \
           kildekode/internansvarlig.tex  kildekode/kafe.tex \
           kildekode/okonomiutvalget.tex  kildekode/donaldsjef.tex \
           kildekode/lover.tex  kildekode/generelt.tex \
-          kildekode/arr/allefestersmor.tex kildekode/arr/karneval.tex
+          kildekode/arr/allefestersmor.tex kildekode/arr/karneval.tex\
+	  changelog.tex
 
 basenavn := $(basename ${hovedfil})
 
@@ -54,6 +55,16 @@ ps: ${basenavn}.ps
 
 # Dette er regelen dvi. Regelen dvi bruker regelen hvitebok.dvi
 dvi: ${basenavn}.dvi
+
+# Denne regelen bruker Subversion til å generere en changelog
+changelog:
+	svn log > changelog
+
+# Denne texer den forrige filen
+changelog.tex: changelog
+	echo '\begin{verbatim}' > changelog.tex
+	cat changelog >> changelog.tex
+	echo '\end{verbatim}' >> changelog.tex
 
 # Renser opp
 logclean:
