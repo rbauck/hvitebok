@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \usepackage{varioref}
 \usepackage{amsmath,url}
-\usepackage{epsfig}
+%\usepackage{epsfig}
 \usepackage{moreverb}
 \usepackage{float}
 \usepackage{fancyheadings}
@@ -13,10 +13,13 @@
 \title{Hvitebok\\
        \quad \\
        \quad \\
-       \epsfig{file=rflogo.eps, totalheight=8cm} }
+       \includegraphics[height=8cm]{rflogo.eps} }
 \author{Realistforeningen}
 
 \newcommand{\clentry}[4]{\section{Revisjonsnummer #1}\begin{tabular}{ll}\textbf{Tid} & #3 \\ \textbf{Lagt inn av} & #2 \end{tabular}}
+
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{$\bullet$}
 
 \begin{document}
 
@@ -96,6 +99,7 @@ i forbindelse med arrangementer.
 
 \chapter{Infostyret}
 \input{kildekode/infosjef}
+\input{kildekode/husbjornen}
 
 \chapter{Andre verv}
 Verv som ikke er direkte knyttet til bestemte styrer eller utvalg.
