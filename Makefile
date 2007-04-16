@@ -65,7 +65,7 @@ dvi: ${basenavn}.dvi ${lov}.dvi
 
 # Denne regelen bruker Subversion til å generere en changelog
 changelog:
-	svn log > changelog
+	svn log | iconv -t utf-8 > changelog
 
 # Denne texer den forrige filen
 changelog.tex: changelog
