@@ -23,9 +23,13 @@ filer := ${hovedfil} kildekode/formand.tex \
           kildekode/okonomiutvalget.tex  kildekode/donaldsjef.tex \
           kildekode/lover.tex  kildekode/generelt.tex \
           kildekode/arr/allefestersmor.tex kildekode/arr/karneval.tex\
-	  changelog.tex
+	  changelog.tex kildekode/alkoholreklame.tex
 
 basenavn := $(basename ${hovedfil})
+
+# Følgende linjer inneholder filer for å kompilere lovene
+lov = lover
+lover = ${lov}.tex kildekode/lover.tex
 
 # Disse linjene forteller hvilke program vi skal bruke
 # *.tex til *.dvi: (ltx funker best på ifi)
@@ -45,16 +49,19 @@ DVIPS = dvips -o $@
 # Dette er den første regelen. Man kan velge hvilken regel man skal 
 # bruke ved å skrive make regelnavn. Den første brukes dersom ingen
 # er oppgitt. Regelen all bruker reglene pdf ps og dvi.
-all: pdf ps dvi
+all: hb lover
+
+hb: ${basenavn}.pdf ${basenavn}.ps ${basenavn}.dvi
+lover: ${lov}.pdf ${lov}.ps ${lov}.dvi
 
 # Dette er regelen pdf. Regelen pdf bruker regelen hvitebok.pdf
-pdf: ${basenavn}.pdf
+pdf: ${basenavn}.pdf ${lov}.pdf
 
 # Dette er regelen ps. Regelen ps bruker regelen hvitebok.ps
-ps: ${basenavn}.ps
+ps: ${basenavn}.ps ${lov}.ps
 
 # Dette er regelen dvi. Regelen dvi bruker regelen hvitebok.dvi
-dvi: ${basenavn}.dvi
+dvi: ${basenavn}.dvi ${lov}.dvi
 
 # Denne regelen bruker Subversion til å generere en changelog
 changelog:
@@ -76,7 +83,7 @@ clean: logclean
 # Det vil si at regelen bare brukes dersom fila filnavn er eldre enn
 # en eller fler av filene som er listet opp. Regelen .PHONY er en
 # spesialregel som sier at reglene nevnt ikke er filnavn
-.PHONY: all pdf ps dvi logclean clean
+.PHONY: all pdf ps dvi logclean clean hb lover
 
 # Dette er regelen hvitebok.pdf, som kjører programmet for PDFLaTeX
 ${basenavn}.pdf: ${filer}
@@ -90,3 +97,11 @@ ${basenavn}.pdf: ${filer}
 # Dette er regelen hvitebok.dvi
 ${basenavn}.dvi: ${filer}
 	${LaTeX} ${hovedfil}
+
+${lov}.dvi: ${lover}
+	${LaTeX} ${lov}
+
+${lov}.pdf: ${lover}
+	${PDFLaTeX} ${lov}
+
+
