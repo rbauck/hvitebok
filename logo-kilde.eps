@@ -1,0 +1,173 @@
+%!PS-ADOBE-3.0
+%BoundingBox: 0 0 212 117
+%begin(plot)
+% RFLOGO.PS
+% Laget av Trond Ivar Hulaas 24 august 89
+% Modisfisert TT 1-may-1990
+% Modifisert HJB 13.12.90
+% Ellipse med konstant linjestørrelse av Robert Bauck Hamar 2007-04-24
+% Håndtegnet integraltegn Robert Bauck Hamar 2007-04-25
+%
+/mm{25.4 div 72 mul} def
+/4pop{4{pop}repeat}def
+/arcp{arc stroke}def
+
+/g17{1.5 mul}def
+
+% Tegner ellipse
+/ellipse {
+/endangle exch def
+/startangle exch def
+/yrad exch def
+/xrad exch def
+/y exch def
+/x exch def
+/savematrix matrix currentmatrix def
+x y translate
+xrad yrad scale
+0 0 1 startangle endangle arc
+savematrix setmatrix
+} def
+
+/kule{  /y exch def
+	/x exch def
+        newpath
+	x y 2 0 360 arc
+	fill
+     }def
+
+/logo{  % x y
+	/y exch def
+	/x exch def
+  gsave
+	x y translate
+	8 8 scale		% forst|rrelsen av hele logoen
+	0.85 setlinewidth
+
+	newpath			% start lukket integral
+	-1.25 0 3 0 360 arc			% sirkelen
+	stroke
+	%32 TNOF				% Symbol-fonten, 16pt for integralet
+%	(\362) show			% integraltegnet (oktalkoden)
+%	closepath  stroke             % end lukket integral
+%%% Integraltegn
+
+       gsave
+	-1.25 0 translate	% Origo -> midten av sirkel
+	1.8 1.8 scale
+
+newpath
+
+-.6 0 moveto % Nedre venstre hjørne av øvre halvdel
+
+-.6 7
+0 9
+1.5 9 curveto % Bezier til toppen av sirkel
+
+/r2 .5 sqrt def % sin og cos til 45 grader
+1.5 8 1 90 210 arcn % Sirkeldel av integraltegnet
+
+1.5 r2 sub .75 sub 8 r2 sub .75 add
+.6 5
+.6 0 curveto % Bezier til nedre venstre hjørne av øvre halvdel
+
+-1 -1 scale % Roter og gjenta koden ovenfor
+
+-.6 0 moveto
+
+-.6 7
+0 9
+1.5 9 curveto
+
+1.5 8 1 90 210 arcn
+
+1.5 r2 sub .75 sub 8 r2 sub .75 add
+.6 5
+.6 0 curveto
+
+fill
+
+
+%%%
+       grestore
+
+       gsave
+ 	1.25 0.9 scale		% gj|r |vre og nedre vinkel mindre spiss
+	newpath			% start ytre del av benzenring
+	-20 20 moveto	
+	0 50 lineto
+	20 20 lineto
+	20 -20 lineto
+	0 -50 lineto
+	-20 -20 lineto
+	-20 20 lineto		
+	closepath		% end ytre del av benzenring
+	stroke
+
+	newpath			% start indre del av benzenring
+	/dd 6 3 div def 
+	/hd -1.5 dd mul dup /xd exch def 50 add def 
+	-20 14 moveto
+	dd hd lineto			% |vre venstre indre del
+	-20 -14 moveto
+	dd hd neg lineto		% nedre venstre indre del
+%	20 2 3 div sub 2 sub dup		% Tronds h|yre indre del
+%	1.5 mul 50 sub moveto			% ble for n{r ytre
+%	20 2 3 div sub 2 sub dup		%
+%	-1.5 mul 50 add lineto		% h|yre del
+16.8 24.8  moveto				% Helges alternativ
+16.8 -24.8 lineto				%
+	closepath		% end benzenring
+	stroke			
+       grestore
+
+      gsave
+
+
+%       gsave
+%         1 1.5 scale		% elektronskallet
+%	newpath
+%	-1.25 0  16 5 40 arcp
+%	-1.25 0  16 50 85 arcp
+%	-1.25 0  16 95 130 arcp
+%	-1.25 0  16 140 175 arcp
+%	-1.25 0  16 185 220 arcp
+%	-1.25 0  16 230 265 arcp
+%	-1.25 0  16 275 310 arcp
+%	-1.25 0  16 320 355 arcp
+%		-1.25 0 16 0 360 arc
+%		stroke
+%      grestore
+
+	/gg 128 sqrt def	% elektronene
+/b gg 1.25 sub def
+%	16 0  kule
+	14.75 0  kule
+%	gg  gg g17 kule
+	b  gg g17 kule
+%	0 16 g17 kule
+	-1.25 16 g17 kule
+%       gg neg gg g17 kule
+	12.5 neg gg g17 kule
+%	16 neg 0 kule
+	17.25 neg 0 kule
+%       gg neg gg g17 neg kule
+        12.5 neg gg g17 neg kule
+%	0 16 g17 neg kule
+	-1.25 16 g17 neg kule
+%    	gg gg g17 neg kule
+     	b gg g17 neg kule
+
+	-1.25 0 translate
+	0 0 16 24 0 360 ellipse stroke
+      grestore
+  grestore
+}def
+
+%.9 setgray
+
+100 mm 150 mm logo
+1 1  scale
+showpage 
+ 
+%end(plot)
