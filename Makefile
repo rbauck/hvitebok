@@ -23,7 +23,8 @@ filer := ${hovedfil} kildekode/formand.tex \
           kildekode/okonomiutvalget.tex  kildekode/donaldsjef.tex \
           kildekode/lover.tex  kildekode/generelt.tex \
           kildekode/arr/allefestersmor.tex kildekode/arr/karneval.tex\
-	  changelog.tex kildekode/alkoholreklame.tex
+	  kildekode/alkoholreklame.tex
+#	  changelog.tex kildekode/alkoholreklame.tex
 
 basenavn := $(basename ${hovedfil})
 
