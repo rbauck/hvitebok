@@ -1,0 +1,111 @@
+===============
+ Les meg først
+===============
+
+Dette er kildekoden, det vil si en versjon som lett kan redigeres,
+til Realistforeningens vitebok (Hviteboken) og Realistforeningens
+lover.
+
+Hvordan redigere
+~~~~~~~~~~~~~~~~
+
+Denne boken er skrevet i LaTeX (se http://www.latex-project.org/),
+som er et typesettingssystem hovedsaklig brukt i 
+matematiske/naturvitenskapelige/tekniske artikler, bøker og tidsskrifter.
+Det gir resultater av profesjonell kvalitet.
+
+LaTeX virker slik at man skriver dokumentet i et ren tekst-format.
+Dette vil si at man kan bruke vanlige tekstredigeringsprogrammer
+som VI, Emacs, Pico, jEdit samt mange andre. Til og med Notepad kan
+brukes, men denne har muligens problemer med ulike måter å lage linjeskift
+på. Det finnes også en god del programmer som er spesiallaget for
+LaTeX-redigering.
+
+Disse dokumentene er skrevet med tegnsettkodingen UTF-8, som er en
+Unicode-koding. Dersom filene åpnes og de særnorske skrifttegn ikke vises rett,
+må enten editoren fortelles om at UTF-8 brukes, eller man må velge en annen
+editor.
+
+Man kan *ikke* redigere LaTeX med Microsoft Word.
+
+Det meste man trenger å vite for å redigere dokumentet er:
+
+* En tom linje lager avsnitt. LaTeX kan konfigureres til å endre dette
+  til at første linje er rykket inn.
+
+* Man lager overskrifter med disse kommandoene (fra størst til minst):
+  \part{overskrift}
+  \chapter{overskrift}
+  \section{overskrift}
+  \subsection{overskrift}
+  \subsubsection{overskrift}
+  \paragraph{overskrift}
+  LaTeX vil da gjøre om skrifttypen, passe på at det ikke kommer nederst på siden
+  osv.
+
+* Tegnene \, {, }, #, $, %, &, ~, _ og ^ kan ikke brukes direkte i LaTeX, ettersom
+  disse er metategn som tolkes spesielt. Bruk tabellen under for å finne erstatning
+  (stort sett dreier det seg om å sette \ foran).
+
+  Tegn   Betydning i LaTeX                		Hvordan skrive
+  { og } Gruppering                                     \{ og \}
+    #    Argument i kommando				\#
+    $    Veksle mellom tekst og matematikk		\$
+    %    Kommentar til begynnelse av neste linje	\%
+    &    Skille mellom kolonner i tabeller o.l.		\&
+    _    Senket tekst (subscript)			\_
+    ^    Hevet tekst (superscript)			\verb|^| (\^ setter ^ over neste tegn)
+    \    Starte kommando				\backslash (\\ lager linjeskift)
+    ~    Mellomrom uten linjeskift			\verb|~| eller $\sim$ (\~ setter ~ over neste tegn)
+
+* Lister kan lages med \begin{itemize} innhold \end{itemize} (unummerert) og 
+  \begin{enumerate} innhold \end{enumerate}. Bruk kommandoen \item foran hvert
+  punkt på listen. Eksempel:
+  \begin{itemize}
+	\item Raindrops on roses
+	\item Whiskers on kittens
+	\item Bright copper kettles
+	\item Warm woolen mittens
+	\item Brown paper packages tied up with strings
+  \end{itemize}
+
+Organisering
+~~~~~~~~~~~~
+
+Bøkene er organisert i to hovedfiler, som kan brukes med LaTeX.
+Disse er hvitebok.tex og lover.tex. Disse inkluderer filene
+i katalogen kildekode. Dette gjør f.eks. at kildekode/lover.tex
+kan brukes av begge hovedfilene til å legge inn lovene.
+Organiseringen i ulike filer gjør det også lettere å endre
+bare deler av kildekoden.
+
+Kompilering
+~~~~~~~~~~~
+
+Kompilering vil si å oversette kildekoden til f.eks. PDF, som
+er lettere både å lese og å skrive ut. Det er lagt en Makefile
+i treet. Denne kan brukes til å kompilere når man har make.
+Ellers går det an å kompilere hvitebok.tex eller lover.tex direkte.
+I et terminalvindu kan man gjøre dette ved å skrive
+
+ pdflatex hvitebok.tex
+
+Hvis man bruker spesielle LaTeX-redigeringsprogrammer, vil de kunne
+kompilere for deg. Bare husk å angi hva som er hovedfilen.
+
+Når man kompilerer lager latex en liste over referanser i filen
+hvitebok.aux (eller lover.aux) ettersom den finner disse referansene
+i kildekoden. Disse referansene brukes så til å lage innholdsfortegnelse,
+og til å sette inn riktige sidenumre når de refereres. Men når LaTeX lager
+innholdsfortegnelsen, vil innholdet forskyves i forhold til hva som er
+lagret i hvitebok.aux. En LaTeX-fil bør derfor kompileres tre ganger
+når ny versjon skal lages.
+
+Versjonskontroll
+~~~~~~~~~~~~~~~~
+
+Kildekoden holdes under versjonskontroll med Subversion.
+Dette betyr at det skal være mulig å gå tilbake å finne alle endringer
+i dokumentet, samt når noe ble endret.
+
+Se eget kapittel i Hviteboken om Subversion.
