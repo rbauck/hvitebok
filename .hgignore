@@ -1,0 +1,8 @@
+# to avoid syncing compiled files
+syntax: glob
+*.aux
+*.log
+*.out
+*.toc
+hvitebok.pdf
+lover.pdf
