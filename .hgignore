@@ -6,3 +6,7 @@ syntax: glob
 *.toc
 hvitebok.pdf
 lover.pdf
+hvitebok.dvi
+lover.dvi
+hvitebok.ps
+lover.ps
