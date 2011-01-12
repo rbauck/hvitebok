@@ -155,10 +155,9 @@ Legg til filnavnet på riktig sted i \verb|hvitebok.tex|, på samme måte som al
 de andre filene er skrevet.
 
 Nye filer må legges til i Mercurial med kommandoen \verb@hg add <filnavn>@.
-Først da vil Mercurial bry seg om filen. Vær vennlig og ikke legg inn filer
+Først da vil Mercurial bry seg om filen. Vær vennlig å ikke legge inn filer
 som genereres av programmer.
-For eksempel hvitebok.pdf skal ikke inn i Mercurial.
-Ting som ikke skal med (f.eks.~\verb|hvitebok.pdf|) holdes dessuten unna
+Ting som ikke skal med (f.eks.~\verb|hvitebok.pdf|) holdes forresten unna
 vha.~regler i filen \verb|.hgignore|.
 
 \section{Oppdatere databasen}
@@ -176,11 +175,11 @@ brukes i kortlistinger.
 
 For å sende inn endringer gjør du
 \verb|hg push ssh://rf@login.ifi.uio.no/hvitebok-hg|
-(forutsatt at du har rf-brukerens passord), eller gjør du som beskrevet i neste
+(forutsatt at du har rf-brukerens passord), ellers gjør du som beskrevet i neste
 avsnitt.
 
 For å sende inn endringer hvis man ikke har skrivetilgang, lager man først en
-bundle med kommandoen
+bundle med kommandoen\\
 \verb@hg bundle endringer.bundle http://hjem.ifi.uio.no/~rf/cgi-bin/hvitebok.cgi@.
 Send så filen endringer.bundle til noen med tilgang. De kan gjøre
 \verb@hg unbundle endringer.bundle@ i sin kopi, for så å legge inn endringene
