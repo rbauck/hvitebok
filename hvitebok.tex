@@ -117,19 +117,20 @@ sikkert alle har kjennskap til dette systemet. Det kan virke komplisert,
 men for å holde dette dokumentet oppdatert trenger man svært lite
 kunnskaper.
 
-\LaTeX{} kan man finne ut mer om på \url{http://www.latex-project.org}. Termstuene
-har også bøker om \LaTeX{} til utlån.
+\LaTeX{} kan man finne ut mer om på \url{http://www.latex-project.org}.
+Termstuene har også bøker om \LaTeX{} til utlån.
 
 Hviteboken holdes under kontroll med revisjonskontrollsystemet Mercurial.
 Dette programmets hjemmeside finnes på \url{http://selenic.com/mercurial/}, og
-der fra kan også alle programmer man trenger lastes ned.
+derfra kan også alle programmer man trenger lastes ned.
 
 Hviteboken ligger på \url{http://hjem.ifi.uio.no/~rf/cgi-bin/hvitebok.cgi}.
 Man må ligge i filgruppen til RF for å få skrivetilgang. Dette kan gjøres
 på \url{http://www.uio.no/brukerinfo} (logg inn som rf).
 
 \section{Skaffe tilgang til filene}
-For å jobbe med filene, trenger man en lokal arbeidskopi. I Linux\footnote{Eller et annet UNIX-lignende system med Mercurial} kan man
+For å jobbe med filene, trenger man en lokal arbeidskopi. I
+Linux\footnote{Eller et annet UNIX-lignende system med Mercurial} kan man
 skaffe dette med kommandoen\\
 \verb@hg clone http://hjem.ifi.uio.no/~rf/cgi-bin/hvitebok.cgi@\\
 i xterm/terminal.
@@ -138,34 +139,46 @@ i xterm/terminal.
 Hoveddokumentet heter «hvitebok.tex». Under katalogen «kildekode» ligger
 resten av filene, stort sett en fil for hvert verv pluss noen til.
 Under katalogen «kildekode/arr» ligger arrangementsbeskrivelser og
-erfaringsprotokoller ifm arrangementer. Alle disse filene er tekstfiler
+erfaringsprotokoller ifbm.~arrangementer. Alle disse filene er tekstfiler
 som kan åpnes i et hvilket som helst tekstredigeringsprogram.
 (Filen «Makefile» inneholder regler som benyttes av kommandoen «make»
 for å produsere dokumenter av forskjellig format ut fra kildekoden).
 
 \section{Legge til filer}
-Legg filen i en av katlogene beskrevet over. Filen må være ren tekst, med tegnsett UTF-8,
-og kalles «filnavn.tex». Bruk samme koder for overskrifter og lister
-som du finner i de eksisterende filene. Legg til filnavnet i «Makefile»,
-fremgangsmåten er beskrivet i den filen. Legg til filnavnet på riktig
-sted i «hvitebok.tex», på samme måte som alle de andre filene er skrevet.
+Legg filen i en av katalogene beskrevet over. Filen må være ren tekst, med
+tegnsett UTF-8, og kalles «filnavn.tex». Bruk samme koder for overskrifter
+og lister som du finner i de eksisterende filene. Legg til filnavnet i
+«Makefile», fremgangsmåten er beskrevet i den filen.
+Legg til filnavnet på riktig sted i \verb|hvitebok.tex|, på samme måte som alle
+de andre filene er skrevet.
 
 Nye filer må legges til i Mercurial med kommandoen \verb@hg add <filnavn>@.
 Først da vil Mercurial bry seg om filen. Vær vennlig og ikke legg inn filer
-som genereres av programmer. For eksempel hvitebok.pdf skal ikke inn i Mercurial.
+som genereres av programmer.
+For eksempel hvitebok.pdf skal ikke inn i Mercurial.
+Ting som ikke skal med (f.eks.~\verb|hvitebok.pdf|) holdes dessuten unna
+vha.~regler i filen \verb|.hgignore|.
 
 \section{Oppdatere databasen}
+% Dette er veldig utdatert
 Når du jobber med din lokale kopi, vil ikke endringene vises for andre før man
 sender inn endringer. Dette gjøres ved å 1) legge inn endringene lokalt, for så
 å 2) sende dem inn til noen med tilgang. Å legge inn endringene lokalt kan man 
-gjøre ved å stå i rotkatalogen for prosjektet (katalogen
-som inneholder hvitebok.tex) og gi kommandoen \verb@hg ci@. Denne vil gi deg en teksteditor
-hvor du kan legge inn en kommentar, som kan gjøre det enklere å finne ut hvilken revisjon
-som har hva og hva som er endret siden sist. Dette gir en god changelog\footnote{hg log}.
-Det er viktig at første linje utgjør en overskrift for kommentaren -- denne brukes i
-kortlistinger.
+gjøre ved å stå i rotkatalogen for prosjektet (katalogen som inneholder
+hvitebok.tex) og gi kommandoen \verb@hg commit@. Denne vil gi deg en
+teksteditor hvor du kan legge inn en kommentar, som kan gjøre det enklere å
+finne ut hvilken revisjon som har hva og hva som er endret siden sist.
+Dette gir en god changelog\footnote{hg log}.
+Det er viktig at første linje utgjør en overskrift for kommentaren -- denne
+brukes i kortlistinger.
 
-For å sende inn endringer, lager man først en bundle med kommandoen
+For å sende inn endringer gjør du
+\verb|hg push ssh://rf@login.ifi.uio.no/hvitebok-hg|
+(forutsatt at du har rf-brukerens passord), eller gjør du som beskrevet i neste
+avsnitt.
+
+For å sende inn endringer hvis man ikke har skrivetilgang, lager man først en
+bundle med kommandoen
 \verb@hg bundle endringer.bundle http://hjem.ifi.uio.no/~rf/cgi-bin/hvitebok.cgi@.
 Send så filen endringer.bundle til noen med tilgang. De kan gjøre
 \verb@hg unbundle endringer.bundle@ i sin kopi, for så å legge inn endringene
