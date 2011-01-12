@@ -13,18 +13,25 @@ hovedfil = hvitebok.tex
 
 # Følgende linje inneholder navnene på alle filene til hviteboka,
 # adskilt med mellomrom. Hovedfila er også med fra forrige linje.
-# Dersom det er mange filnavn, kan man fortsette på neste linje ved
-# å avslutte linja med en backslash (\).
+# Siden det er mange (lange) filnavn, er det et filnavn per linje.
+# Husk å avslutte linja med en backslash (\) !
 filer := ${hovedfil} kildekode/formand.tex \
-          kildekode/kjellermester.tex  kildekode/skjenkemester.tex \
-          kildekode/sekretar.tex  kildekode/infosjef.tex \
-          kildekode/fagsjef.tex  kildekode/arrsjef.tex \
-          kildekode/internansvarlig.tex  kildekode/kafe.tex \
-          kildekode/okonomiutvalget.tex  kildekode/donaldsjef.tex \
-          kildekode/lover.tex  kildekode/generelt.tex \
-          kildekode/arr/allefestersmor.tex kildekode/arr/karneval.tex\
-	  kildekode/alkoholreklame.tex
-#	  changelog.tex kildekode/alkoholreklame.tex
+                     kildekode/kjellermester.tex \
+                     kildekode/skjenkemester.tex \
+                     kildekode/sekretar.tex \
+                     kildekode/infosjef.tex \
+                     kildekode/fagsjef.tex \
+                     kildekode/arrsjef.tex \
+                     kildekode/internansvarlig.tex \
+                     kildekode/kafe.tex \
+                     kildekode/okonomiutvalget.tex \
+                     kildekode/donaldsjef.tex \
+                     kildekode/lover.tex \
+                     kildekode/generelt.tex \
+                     kildekode/arr/allefestersmor.tex \
+                     kildekode/arr/karneval.tex \
+	                 kildekode/alkoholreklame.tex
+#	                 changelog.tex
 
 basenavn := $(basename ${hovedfil})
 
