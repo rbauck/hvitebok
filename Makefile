@@ -15,7 +15,7 @@ hovedfil = hvitebok.tex
 # adskilt med mellomrom. Hovedfila er også med fra forrige linje.
 # Siden det er mange (lange) filnavn, er det et filnavn per linje.
 # Husk å avslutte linja med en backslash (\) !
-filer := ${hovedfil} kildekode/formand.tex \
+filer := ${hovedfil} kildekode/formann.tex \
                      kildekode/kjellermester.tex \
                      kildekode/skjenkemester.tex \
                      kildekode/sekretar.tex \
